@@ -18,6 +18,13 @@ function signUp() {
         //  DOB : document.querySelector(`#DOB`).value 
 
     };
+    
+    for (let i = 0; i < users.length; i++) {
+        if (email === users[i].email ) {
+            alert(`Email Already Exist`) ;
+            return ;    
+        }
+    }
 
     users.push(signUpUsers);
     console.log(users);
@@ -32,3 +39,17 @@ function signUp() {
     move();
 
 }
+
+let email = document.querySelector(`#email`).value
+let password = document.querySelector(`#password`).value
+
+
+// let users = [];
+
+function getSignUpUsers() {
+    let userInString = localStorage.getItem("users");
+    users = JSON.parse(userInString) || [];
+    console.log(users);
+}
+
+getSignUpUsers();

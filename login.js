@@ -1,15 +1,23 @@
 
 
-let email = document.querySelector(`#email`).value
-let password = document.querySelector(`#password`).value
+// let email = document.querySelector(`#email`).value
+// let password = document.querySelector(`#password`).value
 
 
-let users = [];
+// let users = [];
 
-function getSignUpUsers() {
-    let userInString = localStorage.getItem("users");
-    users = JSON.parse(userInString) || [];
-    console.log(users);
-}
+// function getSignUpUsers() {
+//     let userInString = localStorage.getItem("users");
+//     users = JSON.parse(userInString) || [];
+//     console.log(users);
+// }
 
-getSignUpUsers();
+// getSignUpUsers();
+
+
+// for (let i = 0; i < users.length; i++) {
+//     if (email === users[i].email ) {
+//         alert(`Email Already Exist`) ;
+
+//     }
+// }
