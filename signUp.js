@@ -13,16 +13,16 @@ function signUp() {
     let signUpUsers = {
         name: document.querySelector(`#name`).value,
         email: document.querySelector(`#email`).value,
-        //  password : document.querySelector(`#password`).value ,
+        password: document.querySelector(`#password`).value,
         //  gender : document.querySelector(`#gender`) ,
         //  DOB : document.querySelector(`#DOB`).value 
 
     };
-    
+
     for (let i = 0; i < users.length; i++) {
-        if (email === users[i].email ) {
-            alert(`Email Already Exist`) ;
-            return ;    
+        if (email === users[i].email) {
+            alert(`Email Already Exist`);
+            return;
         }
     }
 
@@ -32,24 +32,52 @@ function signUp() {
     localStorage.setItem("users :", JSON.stringify(users));
 
 
-    function move() {
-        window.location.href = "./login.html";
+    function move(a) {
+        window.location.href = a ;
     }
 
-    move();
+    let login = "./login.html" ;
+    move(login);
 
+    
+    // let email = document.querySelector(`#email`).value
+    // let password = document.querySelector(`#password`).value
+    
+    
+    // let users = [];
+    
+    function getSignUpUsers() {
+        let userInString = localStorage.getItem("users");
+        users = JSON.parse(userInString) || [];
+        console.log(users);
+    }
+    getSignUpUsers();
 }
+    
 
-let email = document.querySelector(`#email`).value
-let password = document.querySelector(`#password`).value
+function logIn() {
+
+    let LogInPassword = document.querySelector(`#lPssword`);
+    let LogInEmail = document.querySelector(`#lEmail`);
+
+    let isMatch = false;
+
+    for (let i = 0; i < users.length; i++) {
+
+        if (LogInPassword === users[i].password) {
 
 
-// let users = [];
+            if (LogInEmail === users[i].email) {
+                localStorage.setItem("logged in", JSON.stringify(users[i]))
+                isMatch = true;
+                window.location.href = "./home.html";
+                break;
+            }
+        }
+    }
 
-function getSignUpUsers() {
-    let userInString = localStorage.getItem("users");
-    users = JSON.parse(userInString) || [];
-    console.log(users);
+    if (!isMatch) {
+        alert( " Incorrect email or password " )
+
+    }
 }
-
-getSignUpUsers();
