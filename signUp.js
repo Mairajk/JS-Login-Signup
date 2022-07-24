@@ -1,122 +1,181 @@
 
-// let name = document.querySelector(`#name`).value ;
-// let email = document.querySelector(`#email`).value ;
-// let password = document.querySelector(`#password`).value ;
-// let DOB = documentr.querySelector(`#DOB`).value ;
 
 
+//======================================================= Third Try ============================================================\\
 
 
+//    let users = [] ;
+        let logInUser = {} ;
 
-   // console.log("user: ", user.name);
-        // ============
+        // function getAllUsers() {
+            
+        //     let userInStringForm = localStorage.getItem("users");
+        //     let logInUserString = localStorage.getItem("users");
+        //     users = JSON.parse(userInStringForm) || [];
+        //     logInUser = JSON.parse( logInUserString ) || [];
+        //     console.log(users);
+        //     console.log(logInUser);
+        // }
+        // getAllUsers();
+
 
         let users = [] ;
-        let logInUser = {} ;
+        let logInUsers = [] ;
         function getAllUsers() {
             let userInStringForm = localStorage.getItem("users");
-            let logInUserString = localStorage.getItem("users");
+            let logInUserInStringForm = localStorage.getItem("logInUsers");
             users = JSON.parse(userInStringForm) || [];
-            logInUser = JSON.parse( logInUserString ) || [];
+            logInUsers = JSON.parse(logInUserInStringForm) || [];
+            localStorage.setItem(users) ;
             console.log(users);
-            console.log(logInUser);
+            console.log(logInUsers);
         }
         getAllUsers();
 
-        
-        let isMatch = false ;
-        
-        function move(a) {
+
+                function move(a) {
             window.location.href = a;
         }
 
-
         function signUp() {
-
-            // get details from signup inputs
             let newUser = {
-            name: document.querySelector(`#name`).value,
-            email: document.querySelector(`#email`).value ,
-            password: document.querySelector(`#password`).value          
-                // gender: 
-                // address:
-           
-                // city: 
+                name : document.querySelector(`#name`).value ,
+                email : document.querySelector(`#email`).value ,
+                password : document.querySelector(`#password`).value 
             }
-            
-            
-            
-            // for (let i = 0;  i < users.length; i++) {
-            //     if (user[i].email === document.querySelector(`#email`).value ) {
-            //         alert("exist")
-            //         return ;
-            //     }
-                
-            //     else{
-                    users.push(newUser) ;
-                    localStorage.setItem("users", JSON.stringify(users)) ;
-                    
-                    move("./login.html") ;
-            //     }
-            // }
-            
+
+            users.push(newUser) ;
+            localStorage.setItem("users : ",  JSON.stringify(users)) ;
+
+            move("./login.html")
+   
         }
+
 
         function logIn() {
 
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].password === document.querySelector("#lPassword").value ) {
-                    if (users[i].email === document.querySelector("#lEmail").value ) {
-                      isMatch = true ;  
-                      localStorage.setItem("logged in", JSON.stringify(users[i]))
-                      
-                    }
-                }
-                
-                // else { 
-                // }
-            }
+             let nLogInUser ={ 
+             LogInEmail : document.querySelector(`#lEmail`).value ,
+             LogInPassword : document.querySelector(`#lPassword`).value 
+          }
+
+          logInUsers.push(nLogInUser) ;
+          localStorage.setItem("logInUser : ",  JSON.stringify(logInUser)) ;
+          move("./home.html") ;
+
+
+        }
+
+
+
+
+
+
+
+
+
+//======================================================= Second Try ============================================================\\
+
+
+
+// let SName = document.querySelector(`#name`) ;
+// let SEmail = document.querySelector(`#email`) ;
+// let SPassword = document.querySelector(`#password`) ;
+// // let SDOB = document.querySelector(`#DOB`) ;
+// // let SGender = document.querySelector(`#DOB`) ;
+// // let SAddress = document.querySelector(`#DOB`) ;
+// // let SCity = document.querySelector(`#DOB`) ;
+
+
+
+
+
+//    // console.log("user: ", user.name);
+//         // ============
+
+        // let users = [] ;
+        // let logInUser = {} ;
+
+        // function getAllUsers() {
             
-            if (isMatch) {
-                move("./home.html") ;
+        //     let userInStringForm = localStorage.getItem("users");
+        //     let logInUserString = localStorage.getItem("users");
+        //     users = JSON.parse(userInStringForm) || [];
+        //     logInUser = JSON.parse( logInUserString ) || [];
+        //     console.log(users);
+        //     console.log(logInUser);
+        // }
+        // getAllUsers();
+
+        
+//         let isMatch = false ;
+        
+//         function move(a) {
+//             window.location.href = a;
+//         }
+
+//         // get details from signup inputs
+
+//         function signUp() {
+
+//             let newUser = {
+//             name: `${SName.value}` ,
+//             email: `${SEmail.value}` ,
+//             password: `${SPassword.value}` ,           
+//             // // gender: SGender.value ,
+//             // // address: SAddress.value ,
+//             // // city: SCity.value 
+//             }
+            
+            
+            
+//             // for (let i = 0;  i < users.length; i++) {
+//             //     if (user[i].email === document.querySelector(`#email`).value ) {
+//             //         alert("exist")
+//             //         return ;
+//             //     }
                 
-            } else {
-                alert("incorrect") ;
+//             //     else{
+//                     users.push(newUser) ;
+//                     localStorage.setItem("SignUpUsers" ,JSON.stringify(users)) ;
+                    
+//                     move("./login.html") ;
+//             //     }
+//             // }
+            
+//         }
+
+//         function logIn() {
+
+//             for (let i = 0; i < users.length; i++) {
+//                 if (users[i].password === document.querySelector("#lPassword").value ) {
+//                     if (users[i].email === document.querySelector("#lEmail").value ) {
+//                       isMatch = true ;  
+//                       localStorage.setItem("logged in", JSON.stringify(users[i]))
+                      
+//                     }
+//                 }
                 
-            }
+//                 // else { 
+//                 // }
+//             }
+            
+//             if (isMatch) {
+//                 move("./home.html") ;
+                
+//             } else {
+//                 alert("incorrect") ;
+                
+//             }
 
-         }
-
-
-
-
-
-
-
-
-
-
-
-
+//          }
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//============================================================ First Try ==========================================================\\
 
 
 
