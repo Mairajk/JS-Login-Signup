@@ -5,7 +5,7 @@
 
 
 //    let users = [] ;
-        let logInUser = {} ;
+        // let logInUser = {} ;
 
         // function getAllUsers() {
             
@@ -21,38 +21,46 @@
 
         let users = [] ;
         let logInUsers = [] ;
+
         function getAllUsers() {
             let userInStringForm = localStorage.getItem("users");
             let logInUserInStringForm = localStorage.getItem("logInUsers");
-            users = JSON.parse(userInStringForm) || [];
-            logInUsers = JSON.parse(logInUserInStringForm) || [];
-            localStorage.setItem(users) ;
-            console.log(users);
-            console.log(logInUsers);
+            let  users = JSON.parse(userInStringForm) || [];
+            // localStorage.setItem("users : ",  JSON.stringify(users)) ;
+           let logInUsers = JSON.parse(logInUserInStringForm) || [];
+           users.push(users) ;
+            console.log("users : " , users);
+            console.log("LUsers : " , logInUsers);
         }
-        getAllUsers();
-
-
-                function move(a) {
+        function move(a) {
             window.location.href = a;
         }
-
+        
         function signUp() {
+            
+            
             let newUser = {
                 name : document.querySelector(`#name`).value ,
                 email : document.querySelector(`#email`).value ,
                 password : document.querySelector(`#password`).value 
             }
+            
+            getAllUsers();
+
+
 
             users.push(newUser) ;
-            localStorage.setItem("users : ",  JSON.stringify(users)) ;
+            console.log(users);
+            localStorage.setItem("users" ,JSON.stringify(users)) ;
 
-            move("./login.html")
+            // move("./login.html") ; 
+        
    
         }
 
 
         function logIn() {
+            let logInUser = {} ;
 
              let nLogInUser ={ 
              LogInEmail : document.querySelector(`#lEmail`).value ,
@@ -60,8 +68,10 @@
           }
 
           logInUsers.push(nLogInUser) ;
-          localStorage.setItem("logInUser : ",  JSON.stringify(logInUser)) ;
-          move("./home.html") ;
+          localStorage.setItem("logInUser" ,  JSON.stringify(logInUser)) ;
+         
+        //   move("./home.html") ;
+        //   return ;
 
 
         }
