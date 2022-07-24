@@ -26,15 +26,15 @@
             let userInStringForm = localStorage.getItem("users");
             let logInUserInStringForm = localStorage.getItem("logInUsers");
             let  users = JSON.parse(userInStringForm) || [];
-            // localStorage.setItem("users : ",  JSON.stringify(users)) ;
            let logInUsers = JSON.parse(logInUserInStringForm) || [];
-           users.push(users) ;
             console.log("users : " , users);
             console.log("LUsers : " , logInUsers);
         }
         function move(a) {
             window.location.href = a;
         }
+        getAllUsers();
+
         
         function signUp() {
             
@@ -45,22 +45,24 @@
                 password : document.querySelector(`#password`).value 
             }
             
-            getAllUsers();
-
-
-
+            
+            
+            
             users.push(newUser) ;
             console.log(users);
             localStorage.setItem("users" ,JSON.stringify(users)) ;
-
+            getAllUsers();
+            
             // move("./login.html") ; 
         
    
         }
 
-
+        // getAllUsers() ;
+        
         function logIn() {
             let logInUser = {} ;
+
 
              let nLogInUser ={ 
              LogInEmail : document.querySelector(`#lEmail`).value ,
