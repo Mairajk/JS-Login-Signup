@@ -20,62 +20,94 @@
 
 
         let users = [] ;
-        let logInUsers = [] ;
+        let logInUsers = {} ;
+
+        
+        function move(a) {
+            window.location.href = a;
+        }
+        let logInCheck = () => {
+        let isLogIn = localStorage.getItem("logInUsers") ; 
+        if (isLogIn) {
+
+                console.log("yes....");
+                    move("./home.html")
+            }
+            else {
+                console.log("no....");
+            }
+        }
+        logInCheck() ;
+        // function name(params) {
+            
+        // }
+        // if (localstorage.getItem("logInUsers") === true ) {
+        //     move("./home.html")
+        // }
 
         function getAllUsers() {
             let userInStringForm = localStorage.getItem("users");
             let logInUserInStringForm = localStorage.getItem("logInUsers");
-            let  users = JSON.parse(userInStringForm) || [];
-           let logInUsers = JSON.parse(logInUserInStringForm) || [];
+        //    if (logInUserInStringForm) {
+        //     console.log("yes....");
+        //         move("./home.html")
+        // }
+        // else {
+        //     console.log("no....");
+        // }
+
+            users = JSON.parse(userInStringForm) || [];
+            logInUsers = JSON.parse(logInUserInStringForm) || [];
             console.log("users : " , users);
             console.log("LUsers : " , logInUsers);
-        }
-        function move(a) {
-            window.location.href = a;
         }
         getAllUsers();
 
         
         function signUp() {
             
-            
             let newUser = {
                 name : document.querySelector(`#name`).value ,
                 email : document.querySelector(`#email`).value ,
                 password : document.querySelector(`#password`).value 
             }
-            
-            
-            
-            
+      
             users.push(newUser) ;
             console.log(users);
             localStorage.setItem("users" ,JSON.stringify(users)) ;
             getAllUsers();
             
-            // move("./login.html") ; 
-        
-   
+            move("./login.html") ; 
         }
-
-        // getAllUsers() ;
         
         function logIn() {
-            let logInUser = {} ;
 
+             LogInEmail = document.querySelector(`#lEmail`).value ;
+             LogInPassword = document.querySelector(`#lPassword`).value ; 
+        
+             for (let i = 0; i < users.length; i++) {
+            if (LogInEmail === users[i].email) {
+                if (LogInPassword === users[i].password) {
+                    
+                    localStorage.setItem("logInUser" ,  JSON.stringify(users[i])) ;
+                    
+                    move("./home.html") ;
+                    // window.location.href = ("./home.html");
 
-             let nLogInUser ={ 
-             LogInEmail : document.querySelector(`#lEmail`).value ,
-             LogInPassword : document.querySelector(`#lPassword`).value 
-          }
+        
+                }
+                console.log(124);
+            }
+            else{
+                alert("incorrect") ;
+            }
+        }
+    }
 
-          logInUsers.push(nLogInUser) ;
-          localStorage.setItem("logInUser" ,  JSON.stringify(logInUser)) ;
-         
-        //   move("./home.html") ;
-        //   return ;
+        function logOut() {
+            localStorage.removeItem("logInUser") ;
 
-
+            move("./login.html") ;
         }
 
 
