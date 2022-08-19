@@ -6,26 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> LogIn </title>
-    <script src="signUp.js"></script>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
+<body onload="logInCheck()">
+
+    <h1>LogIn</h1>
+
 
     <form action="" onsubmit="logIn() ; return false ;">
+        <p id="alert"></p>
 
-        <label for=""> EMAIL :
-            <input type="email" placeholder="Enter Your Email" id="lEmail">
-        </label> <br><br>
+        <div class="iDivLogIn">
 
-        <label for=""> PASSWORD :
-            <input type="password" placeholder="Enter Your Password" id="lPassword">
-        </label> <br><br>
+            <fieldset>
+                <legend>
+                    <p> EMAIL : </p>
+                </legend>
+                <input type="email" placeholder="Enter Your Email" id="lEmail">
+            </fieldset>
 
-        <button type="submit"> LogIn </button>
+            <fieldset>
+                <legend>
+                    <p> PASSWORD : </p>
+                </legend>
+                <input type="password" placeholder="Enter Your Password" id="lPassword">
+            </fieldset>
 
+        </div>
+        <div class="btnDiv">
+            <button type="submit"> LogIn </button>
+            <!-- <button onclick="move(`./index.html`)"> Create a new Account</button> -->
+            <a href="./index.html"> Create a new Account </a>
+        </div>
     </form>
+    <br><br><br><br><br><br><br><br><br><br>
 
+    <script src="signUp.js"></script>
 </body>
 
 </html>

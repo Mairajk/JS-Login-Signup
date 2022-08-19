@@ -1,114 +1,118 @@
-
-
-
 //======================================================= Third Try ============================================================\\
 
 
 //    let users = [] ;
-        // let logInUser = {} ;
+// let logInUser = {} ;
 
-        // function getAllUsers() {
-            
-        //     let userInStringForm = localStorage.getItem("users");
-        //     let logInUserString = localStorage.getItem("users");
-        //     users = JSON.parse(userInStringForm) || [];
-        //     logInUser = JSON.parse( logInUserString ) || [];
-        //     console.log(users);
-        //     console.log(logInUser);
-        // }
-        // getAllUsers();
+// function getAllUsers() {
+
+//     let userInStringForm = localStorage.getItem("users");
+//     let logInUserString = localStorage.getItem("users");
+//     users = JSON.parse(userInStringForm) || [];
+//     logInUser = JSON.parse( logInUserString ) || [];
+//     console.log(users);
+//     console.log(logInUser);
+// }
+// getAllUsers();
 
 
-        let users = [] ;
-        let logInUsers = {} ;
+let users = [];
+let logInUsers = {};
 
-        
-        function move(a) {
-            window.location.href = a;
-        }
-        let logInCheck = () => {
-        let isLogIn = localStorage.getItem("logInUsers") ; 
-        if (isLogIn) {
 
-                console.log("yes....");
-                    move("./home.html")
-            }
-            else {
-                console.log("no....");
-            }
-        }
-        logInCheck() ;
-        // function name(params) {
-            
-        // }
-        // if (localstorage.getItem("logInUsers") === true ) {
-        //     move("./home.html")
-        // }
+function move(a) {
+    window.location.href = a;
+}
+let logInCheck = () => {
+    let isLogIn = localStorage.getItem("logInUser");
+    if (isLogIn) {
 
-        function getAllUsers() {
-            let userInStringForm = localStorage.getItem("users");
-            let logInUserInStringForm = localStorage.getItem("logInUsers");
-        //    if (logInUserInStringForm) {
-        //     console.log("yes....");
-        //         move("./home.html")
-        // }
-        // else {
-        //     console.log("no....");
-        // }
+        console.log("login", isLogIn);
+        console.log("yes....");
+        move("./home.html")
+    } else {
+        console.log("no....");
+    }
+}
 
-            users = JSON.parse(userInStringForm) || [];
-            logInUsers = JSON.parse(logInUserInStringForm) || [];
-            console.log("users : " , users);
-            console.log("LUsers : " , logInUsers);
-        }
-        getAllUsers();
+function getAllUsers() {
+    let userInStringForm = localStorage.getItem("users");
+    let logInUserInStringForm = localStorage.getItem("logInUser");
+    users = JSON.parse(userInStringForm) || [];
+    logInUsers = JSON.parse(logInUserInStringForm) || [];
+    console.log("users : ", users);
+    console.log("LUsers : ", logInUsers);
+}
+getAllUsers();
 
-        
-        function signUp() {
-            
-            let newUser = {
-                name : document.querySelector(`#name`).value ,
-                email : document.querySelector(`#email`).value ,
-                password : document.querySelector(`#password`).value 
-            }
-      
-            users.push(newUser) ;
-            console.log(users);
-            localStorage.setItem("users" ,JSON.stringify(users)) ;
-            getAllUsers();
-            
-            move("./login.html") ; 
-        }
-        
-        function logIn() {
 
-             LogInEmail = document.querySelector(`#lEmail`).value ;
-             LogInPassword = document.querySelector(`#lPassword`).value ; 
-        
-             for (let i = 0; i < users.length; i++) {
-            if (LogInEmail === users[i].email) {
-                if (LogInPassword === users[i].password) {
-                    
-                    localStorage.setItem("logInUser" ,  JSON.stringify(users[i])) ;
-                    
-                    move("./home.html") ;
-                    // window.location.href = ("./home.html");
+function signUp() {
 
-        
-                }
-                console.log(124);
-            }
-            else{
-                alert("incorrect") ;
-            }
+    let newUser = {
+        name: document.querySelector(`#name`).value,
+        email: document.querySelector(`#email`).value,
+        password: document.querySelector(`#password`).value,
+        password: document.querySelector(`#password`).value,
+        gender: document.querySelector(`#gender`).value,
+        DOB: document.querySelector(`#DOB`).value
+
+    }
+
+    let isMatch = false;
+    for (let i = 0; i < users.length; i++) {
+
+        if (document.querySelector(`#email`) === users[i].email) {
+            isMatch = true;
+            console.log("checking");
         }
     }
 
-        function logOut() {
-            localStorage.removeItem("logInUser") ;
+    if (isMatch = true) {
+        console.log("true");
+        document.querySelector(`#alertS`).innerHTML = "Your Email is already in use"
+        // isMatch = false
+    } else {
 
-            move("./login.html") ;
+
+        console.log("running");
+        users.push(newUser);
+        console.log(users);
+        localStorage.setItem("users", JSON.stringify(users));
+        getAllUsers();
+
+        move("./login.html");
+    }
+}
+
+function logIn() {
+
+    LogInEmail = document.querySelector(`#lEmail`).value;
+    LogInPassword = document.querySelector(`#lPassword`).value;
+
+    for (let i = 0; i < users.length; i++) {
+        if (LogInEmail === users[i].email) {
+            if (LogInPassword === users[i].password) {
+
+                localStorage.setItem("logInUser", JSON.stringify(users[i]));
+
+                move("./home.html");
+            } else {
+                document.querySelector(`#alert`).innerHTML = "Your Passwrod is Incorrect";
+                document.querySelector(`#alert`).style.visibility = "visible";
+            }
+        } else {
+            document.querySelector(`#alert`).innerHTML = "Your Email is Incorrect"
+            document.querySelector(`#alert`).style.visibility = "visible";
+            // alert("incorrect");
         }
+    }
+}
+
+function logOut() {
+    localStorage.removeItem("logInUser");
+
+    move("./login.html");
+}
 
 
 
@@ -137,23 +141,23 @@
 //    // console.log("user: ", user.name);
 //         // ============
 
-        // let users = [] ;
-        // let logInUser = {} ;
+// let users = [] ;
+// let logInUser = {} ;
 
-        // function getAllUsers() {
-            
-        //     let userInStringForm = localStorage.getItem("users");
-        //     let logInUserString = localStorage.getItem("users");
-        //     users = JSON.parse(userInStringForm) || [];
-        //     logInUser = JSON.parse( logInUserString ) || [];
-        //     console.log(users);
-        //     console.log(logInUser);
-        // }
-        // getAllUsers();
+// function getAllUsers() {
 
-        
+//     let userInStringForm = localStorage.getItem("users");
+//     let logInUserString = localStorage.getItem("users");
+//     users = JSON.parse(userInStringForm) || [];
+//     logInUser = JSON.parse( logInUserString ) || [];
+//     console.log(users);
+//     console.log(logInUser);
+// }
+// getAllUsers();
+
+
 //         let isMatch = false ;
-        
+
 //         function move(a) {
 //             window.location.href = a;
 //         }
@@ -170,23 +174,23 @@
 //             // // address: SAddress.value ,
 //             // // city: SCity.value 
 //             }
-            
-            
-            
+
+
+
 //             // for (let i = 0;  i < users.length; i++) {
 //             //     if (user[i].email === document.querySelector(`#email`).value ) {
 //             //         alert("exist")
 //             //         return ;
 //             //     }
-                
+
 //             //     else{
 //                     users.push(newUser) ;
 //                     localStorage.setItem("SignUpUsers" ,JSON.stringify(users)) ;
-                    
+
 //                     move("./login.html") ;
 //             //     }
 //             // }
-            
+
 //         }
 
 //         function logIn() {
@@ -196,20 +200,20 @@
 //                     if (users[i].email === document.querySelector("#lEmail").value ) {
 //                       isMatch = true ;  
 //                       localStorage.setItem("logged in", JSON.stringify(users[i]))
-                      
+
 //                     }
 //                 }
-                
+
 //                 // else { 
 //                 // }
 //             }
-            
+
 //             if (isMatch) {
 //                 move("./home.html") ;
-                
+
 //             } else {
 //                 alert("incorrect") ;
-                
+
 //             }
 
 //          }
@@ -266,15 +270,15 @@
 //     let login = "./login.html" ;
 //     move(login);
 
-    
+
 //     // let email = document.querySelector(`#email`).value
 //     // let password = document.querySelector(`#password`).value
-    
-    
+
+
 //     // let users = [];
-    
+
 // }
-    
+
 
 // function logIn() {
 

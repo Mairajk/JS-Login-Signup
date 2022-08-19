@@ -6,47 +6,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> SignUp </title>
-    <script src="signUp.js"></script>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
+<body onload="logInCheck()">
 
-    <h1> Signup </h1>
+    <h1> SignUp </h1>
+
+    <p id="alertS"></p>
 
     <form action="" onsubmit="signUp() ; return false ; ">
 
-        <label for=""> NAME :
-            <input type="text" placeholder="Enter Your Name" id="name" autofocus>
-        </label> <br><br>
+        <div class="iDiv">
 
-        <label for=""> EMAIL :
-            <input type="email" placeholder="Enter Your Email" id="email">
-        </label> <br><br>
+            <fieldset>
+                <legend>
+                    <p> NAME : </p>
+                </legend>
+                <input type="text" placeholder="Enter Your Name" id="name" autofocus>
+            </fieldset>
 
-        <label for=""> PASSWORD :
-            <input type="password" placeholder="Enter Your Password" id="password">
-        </label> <br><br>
+            <fieldset>
+                <legend>
+                    <p> EMAIL : </p>
+                </legend>
+                <input type="email" placeholder="Enter Your Email" id="email">
+            </fieldset>
 
-        <!-- 
-        <label for=""> GENDER :
-            <input type="text" placeholder="Enter Your Gender"  id="gender" >
-        </label> <br><br>
+            <fieldset>
+                <legend>
+                    <p> PASSWORD : </p>
+                </legend>
+                <input type="password" placeholder="Enter Your Password" id="password">
+            </fieldset>
 
-        <label for=""> DATE OF BIRTH :
-            <input type="text" placeholder="Enter Your Date Of Birth " id="DOB">
-        </label> <br><br> -->
+            <fieldset>
+                <legend>
+                    <p> GENDER : </p>
+                </legend>
+                <input type="text" placeholder="Enter Your Gender" id="gender">
+            </fieldset>
 
-        <!-- <label for=""> ADDRESS :
-            <input type="text" placeholder="Enter Your Address">
-        </label> <br><br> -->
+            <fieldset>
+                <legend>
+                    <p> DATE OF BIRTH : </p>
+                </legend>
+                <input type="date" placeholder="Enter Your Date Of Birth " id="DOB">
+            </fieldset>
 
-        <button type="submit"> SignUp</button>
+            <fieldset>
+                <legend>
+                    <p> ADDRESS : </p>
+                </legend>
+                <input type="text" placeholder="Enter Your Address">
+            </fieldset>
+        </div>
+        <div class="btnDiv">
+            <button type="submit"> SignUp</button>
 
-        <a href="./login.html"> Already have an account </a>
-
+            <a href="./login.html"> Already have an account </a>
+        </div>
     </form>
+    <br><br><br><br><br><br><br><br><br><br>
 
+    <script src="signUp.js"></script>
 </body>
 
 </html>
