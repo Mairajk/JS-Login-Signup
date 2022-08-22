@@ -12,13 +12,39 @@
 
 <body>
 
-    <h1 style="color: red;"> Welcome </h1>
+    <h1>HOME</h1>
 
-    <button onclick="logOut()"> LogOut</button>
+    <h2 id="welcome">WELCOME</h2>
 
-    <button class="demo"></button>
+    <div id="infoDiv">
+        <fieldset>
+            <legend>
+                <p>NAME:</p>
+            </legend>
+            <p id="displayName" class="infoBox"></p>
+        </fieldset>
 
-    <script src="signUp.js"></script>
+        <fieldset>
+            <legend>
+                <p>EMAIL:</p>
+            </legend>
+            <p id="displayEmail" class="infoBox"></p>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <p>GENDER:</p>
+            </legend>
+            <p id="displayGender" class="infoBox"></p>
+        </fieldset>
+    </div>
+
+    <div class="btnDiv">
+        <button onclick="logOut(event)"> LogOut</button>
+    </div>
+    <!-- <button class="demo"></button> -->
+
+    <script src="home.js"></script>
 </body>
 
 </html>

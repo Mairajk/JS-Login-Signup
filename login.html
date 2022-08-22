@@ -10,12 +10,12 @@
 
 </head>
 
-<body onload="logInCheck()">
+<body>
 
     <h1>LogIn</h1>
 
 
-    <form action="" onsubmit="logIn() ; return false ;">
+    <form action="" onsubmit="logIn(event)">
         <p id="alert"></p>
 
         <div class="iDivLogIn">
@@ -24,26 +24,27 @@
                 <legend>
                     <p> EMAIL : </p>
                 </legend>
-                <input type="email" placeholder="Enter Your Email" id="lEmail">
+                <input type="email" placeholder="Enter Your Email" id="lEmail" required>
             </fieldset>
 
             <fieldset>
                 <legend>
                     <p> PASSWORD : </p>
                 </legend>
-                <input type="password" placeholder="Enter Your Password" id="lPassword">
+                <input type="password" placeholder="Enter Your Password" id="lPassword" required>
             </fieldset>
 
         </div>
         <div class="btnDiv">
             <button type="submit"> LogIn </button>
-            <!-- <button onclick="move(`./index.html`)"> Create a new Account</button> -->
+
             <a href="./index.html"> Create a new Account </a>
         </div>
     </form>
     <br><br><br><br><br><br><br><br><br><br>
 
-    <script src="signUp.js"></script>
+    <!-- <script src="home.js"></script> -->
+    <script src="login.js"></script>
 </body>
 
 </html>

@@ -108,7 +108,7 @@ h1 {
     font-weight: bolder;
     font-family: sans-serif;
     font-style: italic;
-    padding: 20px;
+    padding: 15px;
     background-color: white;
     /* font-stretch: extra-expanded; */
     /* line-height: 500px; */
@@ -118,7 +118,7 @@ h1 {
     width: 150px;
     height: 150px;
     /* margin-left: 05%; */
-    margin: 20px 0px 10px 5%;
+    margin: 50px 0px 10px 50px;
     box-shadow: 0px 0px 15px 20px rgb(84, 84, 242);
     border-radius: 50%;
 }
@@ -205,13 +205,54 @@ a:hover {
 }
 
 
-.demo {
+/* .demo {
     background: linear-gradient(to bottom right, red, yellow, green, blue);
-}
+} */
 
 #alert {
     color: red;
     /* display: ; */
     visibility: hidden;
-    background: #000;
+    /* background: lightcyan; */
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 50px auto 10px auto;
+    text-align: center;
+    width: 60%;
+    border-radius: 10%;
+    box-shadow: 0px 0px 5px 2px red;
+}
+
+#infoDiv {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.infoBox {
+    margin: 0 auto;
+    align-self: center;
+    padding: 10px;
+    border-radius: 20%;
+    color: rgb(84, 84, 242);
+    box-shadow: 2px 2px 5px gray;
+    text-shadow: 1px 1px 2px black;
+    letter-spacing: 00.05em;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+#welcome {
+    padding: 30px;
+    font-size: 45px;
+    margin: 50px auto;
+    width: 220px;
+    text-align: center;
+    text-shadow: 3px 3px 1px rgb(84, 84, 242);
+    border-radius: 0px 50px 0px 20px;
+    box-shadow: 0px 0px 10px 2px #333;
+    background: linear-gradient(to bottom left, aliceblue, rgb(84, 84, 242));
+    color: white;
 }

@@ -15,15 +15,11 @@
 // }
 // getAllUsers();
 
-
-let users = [];
-let logInUsers = {};
+//============================================================
 
 
-function move(a) {
-    window.location.href = a;
-}
-let logInCheck = () => {
+
+(() => {
     let isLogIn = localStorage.getItem("logInUser");
     if (isLogIn) {
 
@@ -33,86 +29,75 @@ let logInCheck = () => {
     } else {
         console.log("no....");
     }
+})();
+
+
+let users = [];
+let logInUser = [];
+
+
+function move(a) {
+    window.location.href = a;
 }
 
-function getAllUsers() {
+// function getAllUsers
+(() => {
     let userInStringForm = localStorage.getItem("users");
     let logInUserInStringForm = localStorage.getItem("logInUser");
     users = JSON.parse(userInStringForm) || [];
-    logInUsers = JSON.parse(logInUserInStringForm) || [];
+    logInUser = JSON.parse(logInUserInStringForm) || {};
     console.log("users : ", users);
-    console.log("LUsers : ", logInUsers);
-}
-getAllUsers();
+    console.log("LUsers : ", logInUser);
+})();
 
 
-function signUp() {
+function signUp(e) {
+    e.preventDefault();
+
+    let alert = document.querySelector(`#alert`);
+    let name = document.querySelector("#name").value;
+    let gender = document.querySelector("#gender").value;
+    let email = document.querySelector("#email").value;
+    let password = document.querySelector("#password").value;
+    let ConfirmPassword = document.querySelector("#passwordC").value;
+
+    if (password !== ConfirmPassword) {
+        alert.style.visibility = "visible";
+        alert.innerHTML = " Password doesn't match ! please check and type again ";
+        return;
+    }
 
     let newUser = {
-        name: document.querySelector(`#name`).value,
-        email: document.querySelector(`#email`).value,
-        password: document.querySelector(`#password`).value,
-        password: document.querySelector(`#password`).value,
-        gender: document.querySelector(`#gender`).value,
-        DOB: document.querySelector(`#DOB`).value
-
+        name,
+        email,
+        password,
+        ConfirmPassword,
+        gender,
+        DOB
     }
 
     let isMatch = false;
     for (let i = 0; i < users.length; i++) {
 
-        if (document.querySelector(`#email`) === users[i].email) {
+        if (email === users[i].email) {
             isMatch = true;
             console.log("checking");
+            alert.style.visibility = "visible";
+            alert.innerHTML = " This email is already registered ! kindly enter a new one  "
+            return;
         }
     }
 
-    if (isMatch = true) {
-        console.log("true");
-        document.querySelector(`#alertS`).innerHTML = "Your Email is already in use"
-        // isMatch = false
-    } else {
 
-
-        console.log("running");
-        users.push(newUser);
-        console.log(users);
-        localStorage.setItem("users", JSON.stringify(users));
-        getAllUsers();
-
-        move("./login.html");
-    }
-}
-
-function logIn() {
-
-    LogInEmail = document.querySelector(`#lEmail`).value;
-    LogInPassword = document.querySelector(`#lPassword`).value;
-
-    for (let i = 0; i < users.length; i++) {
-        if (LogInEmail === users[i].email) {
-            if (LogInPassword === users[i].password) {
-
-                localStorage.setItem("logInUser", JSON.stringify(users[i]));
-
-                move("./home.html");
-            } else {
-                document.querySelector(`#alert`).innerHTML = "Your Passwrod is Incorrect";
-                document.querySelector(`#alert`).style.visibility = "visible";
-            }
-        } else {
-            document.querySelector(`#alert`).innerHTML = "Your Email is Incorrect"
-            document.querySelector(`#alert`).style.visibility = "visible";
-            // alert("incorrect");
-        }
-    }
-}
-
-function logOut() {
-    localStorage.removeItem("logInUser");
+    console.log("running");
+    users.push(newUser);
+    console.log(users);
+    localStorage.setItem("users", JSON.stringify(users));
+    // getAllUsers();
 
     move("./login.html");
 }
+
 
 
 
